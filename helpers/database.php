@@ -3,7 +3,7 @@ class Database{
     public $conn;
     function __construct() {
         $servername = "localhost";
-        $dbname = "estudoapi";
+        $dbname = "estudosapi";
         $username = "root";
         $password = "";
         try {
