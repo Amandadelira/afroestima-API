@@ -1,33 +1,61 @@
 <?php
-    if(isset($route[1]) && $route[1] != ''){
-        if($route[1] == 'create'){
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $pass = $_POST['pass'];
-            $user = new User(null, $name, $email, $pass);
-            $user->create();
-        } elseif ($route[1] == 'delete') {
-            $id = $_POST['id'];
-            $user = new User($id,null,null,null);
-            $user->delete();
-        } elseif ($route[1] == 'update') {
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $pass = $_POST['pass'];
-            $id = $_POST['id'];
-            $user = new User($id, $name, $email, $pass);
-            $user->update();
-        } elseif ($route[1] == 'select-all') {
-            $user = new User(null, null, null, null);
-            $user->selectAll();
-        } else {
-            $result['message'] = "404 - Rota da Api não Encontrada";
-            $response = new Output();
-            $response->out($result, 404);
-        }
-    }else{
-        $result['message'] = "404 - Rota da Api não Encontrada";
+class UserController{
+
+    function create() {
+        //Entradas
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $pass = $_POST['pass'];
+
+        //Processamento
+        $user = new User(null, $name, $email, $pass);
+        $id = $user->create();
+
+        //Saídas
+        $result['menssage'] = "Cadrastado com Sucesso";
+        $result['user']['id'] = $id;
+        $result['user']['name'] = $name;
+        $result['user']['email'] = $email;
+        $result['user']['pass'] =  $pass;
         $response = new Output();
-        $response->out($result, 404);
+        $response->out($result);
     }
-?>
+    function delete(){
+        //Entrada
+        $id = $_POST['id'];
+        //Processamento
+        $user = new User($id,null,null,null);
+        //Saida
+        $result['menssage'] = "Deletado com Sucesso";
+        $result['user']['id'] = $id;
+        $response = new Output();
+        $response->out($result);  
+    }
+    function Update(){
+        //Entrada
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $pass = $_POST['pass'];
+        $id = $_POST['id'];
+        //Processamento
+        $user = new User($id, $name, $email, $pass);
+        $user->update();
+        //Saida
+        $result['menssage'] = "Atualizado com Sucesso";
+        $result['user']['id'] = $id;
+        $result['user']['name'] = $name;
+        $result['user']['email'] = $email;
+        $result['user']['pass'] =  $pass;
+        $response = new Output();
+        $response->out($result);
+    }
+    function selectAll(){
+        //Entrada
+        $user = new User(null, null, null, null);
+        //Saida
+        $result =  $user->selectAll();
+        $response = new Output();
+        $response->out($result);
+    }
+
+}
