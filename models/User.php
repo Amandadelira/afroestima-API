@@ -40,7 +40,7 @@ class User{
             $response->out($result, 500);
         }
     }
-    function Update(){
+    function update(){
         $db = new DataBase();
         try{
             $stmt = $db->conn->prepare("UPDATE users SET name = :name, email = :email, pass = :pass WHERE id = :id;");
@@ -63,11 +63,10 @@ class User{
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $result;
-            $response->out($result);
         }catch(PDOException $e) {
-        $result['message'] = "Error Select All User: " . $e->getMessage();
-        $response = new Output();
-        $response->out($result, 500);
+            $result['message'] = "Error Select All User: " . $e->getMessage();
+            $response = new Output();
+            $response->out($result, 500);
         }
     }
 }

@@ -1,5 +1,5 @@
 <?php
-define('FOLDER','/afropratas-back-end/api/'); // cria a constante caminho padrão
+define('FOLDER','/afroestima-back-end/api/'); // cria a constante caminho padrão
 $url = $_SERVER['REQUEST_URI']; // pega o que está na url
 $lengthStrFolder = strlen(FOLDER); // guarda o tamanho da constante folder
 $urlClean = substr($url, $lengthStrFolder); // separa a string por partes
@@ -24,12 +24,12 @@ $action = str_replace('-', '', $route[1]);
 $controller_path = 'controllers/' . $controller_name. 'Controller.php';
 
 // checa se o arquivo do controller existe
-if(file_exists($controleer_path)){
+if(file_exists($controller_path)){
     $controller_class_name = $controller_name. 'Controller';
     $controller = new $controller_class_name();
     //checa se a action do controller existe
     if (method_exists($controller, $action)){
-        $controller->$action;
+        $controller->$action();
     }
 }
 

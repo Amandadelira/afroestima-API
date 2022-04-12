@@ -31,7 +31,7 @@ class UserController{
         $response = new Output();
         $response->out($result);  
     }
-    function Update(){
+    function update(){
         //Entrada
         $name = $_POST['name'];
         $email = $_POST['email'];
