@@ -9,13 +9,30 @@ $route = explode('/', $urlClean);
 //carrega autoloaders
 require ('helpers/autoloaders.php');
 
-if($route[0] == 'user'){
-    require('controllers/UserController.php');
-} elseif($route[0] == 'product'){
-    require('controllers/ProductController.php');
-} else {
+//Cria objeto de response da api
+$response = new Output();
+
+//checa se os controller e a action existe na rota
+if(!isset($route[0]) || !isset($route[1])){
     $result['message'] = "404 - Rota da Api não Encontrada";
-    $response = new Output();
     $response->out($result, 404);
 }
+
+$controller_name = $route[0];
+$action = str_replace('-', '', $route[1]);
+
+$controller_path = 'controllers/' . $controller_name. 'Controller.php';
+
+// checa se o arquivo do controller existe
+if(file_exists($controleer_path)){
+    $controller_class_name = $controller_name. 'Controller';
+    $controller = new $controller_class_name();
+    //checa se a action do controller existe
+    if (method_exists($controller, $action)){
+        $controller->$action;
+    }
+}
+
+$result['message'] = "404 - Rota da Api não Encontrada";
+$response->out($result, 404);
 ?>
