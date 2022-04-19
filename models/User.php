@@ -69,5 +69,19 @@ class User{
             $response->out($result, 500);
         }
     }
+    function selecById(){
+        $db = new DataBase();
+        try {
+            $stmt = $db->conn->prepare("SELECT * FROM users WHERE id = :id;");
+            $stmt->bindParam(':id', $this->id);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }catch(PDOException $e) {
+            $result['message'] = "Error Select by id: " . $e->getMessage();
+            $response = new Output();
+            $response->out($result, 500);
+        }
+    }
 }
 ?>
