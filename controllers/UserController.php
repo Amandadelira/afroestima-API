@@ -29,6 +29,7 @@ class UserController{
         $id = $_POST['id'];
         //Processamento
         $user = new User($id,null,null,null);
+        $user->delete();
         //Saida
         $result['menssage'] = "Deletado com Sucesso";
         $result['user']['id'] = $id;

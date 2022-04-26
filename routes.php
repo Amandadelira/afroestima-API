@@ -1,12 +1,12 @@
 <?php
-define('FOLDER','/afropratas-back-end/api/'); // cria a constante caminho padrão
+require('config.php'); // cria a constante caminho padrão
 $url = $_SERVER['REQUEST_URI']; // pega o que está na url
 $lengthStrFolder = strlen(BASE_URL_API); // guarda o tamanho da constante folder
 $urlClean = substr($url, $lengthStrFolder); // separa a parte do BASE_URL_API da string
 $routeWithoutParameters = explode('?', $urlClean); //elimina parâmetros
 $route = explode('/',$routeWithoutParameters[0]); //separa rota em um array
 //Carrega autoloaders
-require ('helpers/autoloaders.php');
+require(HELPERS_FOLDER.'autoloaders.php');
 //Cria objeto de response da api
 $response = new Output();
 //Checa se os controller e a action existe na rota
@@ -27,7 +27,7 @@ if(file_exists($controller_path)){
         $controller->$action();
     }
 }
-//Caso não exista crontoller e action retorna 404
+//Caso não exista crontroller e action retorna 404
 $result['message'] = "404 - Rota da Api não Encontrada";
 $response->out($result, 404);
 ?>
