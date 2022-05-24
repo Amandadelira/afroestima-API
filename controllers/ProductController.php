@@ -1,38 +1,82 @@
-<?php  
-   function create() {
-    //Entradas
-    $response = new Output();
-    $response->allowedMethod('POST');
-    $name = $_POST['name'];
-    $value = $_POST['value'];
+<?php
+class  ProductController{
 
-    //Processamento
-    $user = new User(null, $name, $value);
-    $id = $product->create();
+    function  create (){
+        $resposta = new  Saída ();
+        $resposta -> allowedMethod ( 'POST' );
 
-    //Saídas
-    $result['menssage'] = "Cadrastado com Sucesso";
-    $result['user']['id'] = $id;
-    $result['user']['name'] = $name;
-    $result['user']['value'] = $value;
- 
-    $response->out($result);
-}
-    if(isset($route[1]) && $route[1] != ''){
-        if($route[1] == 'create'){
-            $product = new Product(10, 'Renan','','');
-            $$product->create();
-        }elseif ($route[1] == 'delete') {
-            $product = new Product(10, 'Renan','','');
-            $product->delete();
-        }else{
-            $result['message'] = "404 - Rota da Api não Encontrada";
-            $response = new Output();
-            $response->out($result, 404);
-        }
-    }else{
-        $result['message'] = "404 - Rota da Api não Encontrada";
-        $response = new Output();
-        $response->out($result, 404);
+        $auth = new  Auth ();
+        $user_session = $auth -> allowedRole ( 'admin' );
+
+        //Entradas
+        $photo = $_POST [ 'photo' ];
+        $title = $_POST [ 'title' ];
+        $price = $_POST [ 'price' ];
+
+        //Processamento ou Persistência
+        $produto = new  Produto ( null , $photo , $title , $price );
+        $id = $produto -> criar ();
+        //Saída
+        $result [ 'message' ] = "Produto Cadastrado com sucesso!" ;
+        $resultado [ 'produto' ][ 'id' ] = $id ;
+        $resultado [ 'produto' ][ 'photo' ] = $photo ;
+        $resultado [ 'produto' ][ 'title' ] = $title ;
+        $resultado [ 'produto' ][ 'price' ] = $price ;
+        $resposta -> saída ( $resultado );
     }
+
+    function deletar (){
+        $resposta = new  Saída ();
+        $resposta -> allowedMethod ( 'POST' );
+
+        $auth = new  Auth ();
+        $user_session = $auth -> allowedRole ( 'admin' );
+
+        $id = $_POST [ 'id' ];
+        $usuári = new  produto ( $id , null , null , null );
+        $produto -> deletar ();
+        $result [ 'message' ] = "Produto deletado com sucesso!" ;
+        $resultado [ 'produto' ][ 'id' ] = $id ;
+        $resposta -> saída ( $resultado );
+    }
+
+         function update (){
+        $resposta = new  Saída ();
+        $resposta -> allowedMethod ( 'POST' );
+
+        $auth = new  Auth ();
+        $user_session = $auth -> allowedRole ( 'admin' );
+
+        $id = $_POST [ 'id' ];
+        $photo = $_POST [ 'photo' ];
+        $title = $_POST [ 'title' ];
+        $price = $_POST [ 'price' ];
+        $user = new  produto ( $id , $name , $email , $pass );
+        $produto -> atualizar ();
+        $result [ 'message' ] = "produto atualizado com sucesso!" ;
+        $resultado [ 'produto' ][ 'id' ] = $id ;
+        $resultado [ 'produto' ][ 'photo' ] = $photo ;
+        $resultado [ 'produto' ][ 'title' ] = $title ;
+        $resultado [ 'produto' ][ 'price' ] = $price ;
+        $resposta -> saída ( $resultado );
+    }
+
+    function selecionarTodos (){
+        $resposta = new  Saída ();
+        $resposta -> allowedMethod ( 'GET' );
+        $produto = new  produto ( null , null , null , null );
+        $resultado = $produto -> selectAll ();
+        $resposta -> saída ( $resultado );
+    }
+
+    function selectById (){
+        $resposta = new  Saída ();
+        $resposta -> allowedMethod ( 'GET' );
+        $id = $_GET [ 'id' ];
+        $produto = new  produto ( $id , null , null , null );
+        $resultado = $produto -> selectById ();
+        $resposta -> saída ( $resultado );
+    }
+
+}
 ?>
