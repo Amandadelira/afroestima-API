@@ -3,41 +3,18 @@
     "_id": "449a4ccb-0f1d-4b98-a836-82aee712e068",
     "colId": "history",
     "containerId": "",
-    "name": "http://localhost/lp2/api/auth/login",
-    "url": "http://localhost/lp2/api/auth/login",
+    "name": "http://localhost/afropratas-back-end/api/auth/login",
+    "url": "http://localhost/afropratas-back-end/api/user/create",
     "method": "POST",
     "sortNum": 0,
     "created": "2022-05-23T17:37:18.304Z",
-    "modified": "2022-05-23T17:37:18.467Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "formdata",
-      "raw": "",
-      "form": [
-        {
-          "name": "email",
-          "value": "renancavichi@gmail.com"
-        },
-        {
-          "name": "pass",
-          "value": "321321"
-        }
-      ]
-    },
-    "tests": []
-  },
-  {
-    "_id": "b05e1537-f2b0-4528-8681-ad9c02019834",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost/lp2/api/user/select-all",
-    "url": "http://localhost/afropratas-back-end/api/product/create",
-    "method": "POST",
-    "sortNum": 0,
-    "created": "2022-05-23T17:44:15.301Z",
-    "modified": "2022-05-23T20:49:34.431Z",
-    "headers": [],
+    "modified": "2022-05-30T20:19:57.946Z",
+    "headers": [
+      {
+        "name": "acess-token",
+        "value": ""
+      }
+    ],
     "params": [],
     "body": {
       "type": "formdata",
@@ -45,11 +22,15 @@
       "form": [
         {
           "name": "name",
-          "value": "Brinco Style"
+          "value": "gio"
         },
         {
-          "name": "value",
-          "value": "$135,99"
+          "name": "email",
+          "value": "giovian@gmail.com"
+        },
+        {
+          "name": "pass",
+          "value": "123123"
         }
       ]
     },

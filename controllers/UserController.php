@@ -10,7 +10,7 @@ class UserController{
         $pass = $_POST['pass'];
 
         //Processamento
-        $user = new User(null, $name, $email, $pass);
+        $user = new User(null, $name, $email, sha1($pass));
         $id = $user->create();
 
         //Saídas

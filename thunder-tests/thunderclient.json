@@ -5,5 +5,75 @@
     "created": "2022-05-23T17:37:43.724Z",
     "sortNum": 10000,
     "folders": []
+  },
+  {
+    "_id": "68e54221-66ac-499b-a815-46f485c09bd9",
+    "colId": "cee771b6-02fa-4502-9c72-0256121e8251",
+    "containerId": "",
+    "name": "user/create",
+    "url": "http://localhost/afropratas-back-end/api/user/create",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-05-30T20:30:14.783Z",
+    "modified": "2022-05-30T20:37:04.484Z",
+    "headers": [
+      {
+        "name": "acess-token",
+        "value": ""
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "name",
+          "value": "Amanda"
+        },
+        {
+          "name": "email",
+          "value": "amanda.delira@gamail.com"
+        },
+        {
+          "name": "pass",
+          "value": "321321"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "3fd323eb-a6cc-42e7-9340-55ca2b4d1d62",
+    "colId": "cee771b6-02fa-4502-9c72-0256121e8251",
+    "containerId": "",
+    "name": "auth/login",
+    "url": "http://localhost/afropratas-back-end/api/auth/login",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-05-30T20:34:33.451Z",
+    "modified": "2022-05-30T20:35:26.264Z",
+    "headers": [
+      {
+        "name": "acess-token",
+        "value": ""
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "email",
+          "value": "giovian@gmail.com"
+        },
+        {
+          "name": "pass",
+          "value": "123123"
+        }
+      ]
+    },
+    "tests": []
   }
 ]

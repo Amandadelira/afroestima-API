@@ -13,8 +13,8 @@ class User{
     function create(){
         $db = new Database();
         try {
-            $stmt = $db->conn->prepare("INSERT INTO users (name, email, pass)
-            VALUES (:name, :email, :pass)");
+            $stmt = $db->conn->prepare("INSERT INTO users (name, email, pass, roles)
+            VALUES (:name, :email, :pass, 'client')");
             $stmt->bindParam(':name', $this->name);
             $stmt->bindParam(':email', $this->email);
             $stmt->bindParam(':pass', $this->pass);
@@ -79,6 +79,21 @@ class User{
             return $result;
         }catch(PDOException $e) {
             $result['message'] = "Error Select by id: " . $e->getMessage();
+            $response = new Output();
+            $response->out($result, 500);
+        }
+    }
+    function login(){
+        $db = new Database();
+        try {
+            $stmt = $db->conn->prepare("SELECT id, name, email, roles FROM users WHERE email = :email AND pass = :pass; ");
+            $stmt->bindParam(':email', $this->email);
+            $stmt->bindParam(':pass', $this->pass);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }catch(PDOException $e) {
+            $result['message'] = "Error User Login:" . $e->getMessage();
             $response = new Output();
             $response->out($result, 500);
         }
