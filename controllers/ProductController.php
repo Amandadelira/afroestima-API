@@ -1,81 +1,81 @@
 <?php
-class  ProductController{
+class ProductController{
 
-    function  create (){
-        $resposta = new  Saída ();
-        $resposta -> allowedMethod ( 'POST' );
+    function create(){
+        $response = new Output();
+        $response->allowedMethod( 'POST' );
 
-        $auth = new  Auth ();
-        $user_session = $auth -> allowedRole ( 'admin' );
+        $auth = new Auth();
+        $user_session = $auth->allowedRole( 'admin' );
 
         //Entradas
-        $photo = $_POST [ 'photo' ];
-        $title = $_POST [ 'title' ];
-        $price = $_POST [ 'price' ];
+        $photo = $_POST[ 'photo' ];
+        $title = $_POST[ 'title' ];
+        $price = $_POST[ 'price' ];
 
         //Processamento ou Persistência
-        $produto = new  Produto ( null , $photo , $title , $price );
-        $id = $produto -> criar ();
+        $produto = new Product( null , $photo , $title , $price );
+        $id = $produto->create();
         //Saída
-        $result [ 'message' ] = "Produto Cadastrado com sucesso!" ;
-        $resultado [ 'produto' ][ 'id' ] = $id ;
-        $resultado [ 'produto' ][ 'photo' ] = $photo ;
-        $resultado [ 'produto' ][ 'title' ] = $title ;
-        $resultado [ 'produto' ][ 'price' ] = $price ;
-        $resposta -> saída ( $resultado );
+        $result[ 'message' ] = "Produto Cadastrado com sucesso!" ;
+        $resultado[ 'produto' ][ 'id' ] = $id ;
+        $resultado[ 'produto' ][ 'photo' ] = $photo ;
+        $resultado[ 'produto' ][ 'title' ] = $title ;
+        $resultado[ 'produto' ][ 'price' ] = $price ;
+        $response->out( $resultado );
     }
 
-    function deletar (){
-        $resposta = new  Saída ();
-        $resposta -> allowedMethod ( 'POST' );
+    function delete(){
+        $response = new Output();
+        $response->allowedMethod( 'POST' );
 
-        $auth = new  Auth ();
-        $user_session = $auth -> allowedRole ( 'admin' );
+        $auth = new Auth();
+        $user_session = $auth->allowedRole( 'admin' );
 
         $id = $_POST [ 'id' ];
-        $usuári = new  produto ( $id , null , null , null );
-        $produto -> deletar ();
+        $produto = new Product( $id, null, null, null );
+        $produto->delete();
         $result [ 'message' ] = "Produto deletado com sucesso!" ;
-        $resultado [ 'produto' ][ 'id' ] = $id ;
-        $resposta -> saída ( $resultado );
+        $result [ 'produto' ][ 'id' ] = $id ;
+        $response->out($result);
     }
 
-         function update (){
-        $resposta = new  Saída ();
-        $resposta -> allowedMethod ( 'POST' );
+    function update(){
+        $response = new Output();
+        $response->allowedMethod( 'POST' );
 
-        $auth = new  Auth ();
-        $user_session = $auth -> allowedRole ( 'admin' );
+        $auth = new Auth();
+        $user_session = $auth->allowedRole( 'admin' );
 
-        $id = $_POST [ 'id' ];
-        $photo = $_POST [ 'photo' ];
-        $title = $_POST [ 'title' ];
-        $price = $_POST [ 'price' ];
-        $user = new  produto ( $id , $name , $email , $pass );
-        $produto -> atualizar ();
-        $result [ 'message' ] = "produto atualizado com sucesso!" ;
-        $resultado [ 'produto' ][ 'id' ] = $id ;
-        $resultado [ 'produto' ][ 'photo' ] = $photo ;
-        $resultado [ 'produto' ][ 'title' ] = $title ;
-        $resultado [ 'produto' ][ 'price' ] = $price ;
-        $resposta -> saída ( $resultado );
+        $id = $_POST[ 'id' ];
+        $photo = $_POST[ 'photo' ];
+        $title = $_POST[ 'title' ];
+        $price = $_POST[ 'price' ];
+        $product = new Product( $id , $photo , $title , $price );
+        $product ->update();
+        $result[ 'message' ] = "produto atualizado com sucesso!" ;
+        $result[ 'produto' ][ 'id' ] = $id ;
+        $result[ 'produto' ][ 'photo' ] = $photo ;
+        $result[ 'produto' ][ 'title' ] = $title ;
+        $result[ 'produto' ][ 'price' ] = $price ;
+        $response->out( $result );
     }
-
-    function selecionarTodos (){
-        $resposta = new  Saída ();
-        $resposta -> allowedMethod ( 'GET' );
-        $produto = new  produto ( null , null , null , null );
-        $resultado = $produto -> selectAll ();
-        $resposta -> saída ( $resultado );
+    function selectAll(){
+        //Entrada
+        $response = new Output();
+        $response->allowedMethod('GET');
+        $product = new Product(null, null, null, null);
+        //Saida
+        $result =  $product->selectAll();
+        $response->out($result);
     }
-
     function selectById (){
-        $resposta = new  Saída ();
-        $resposta -> allowedMethod ( 'GET' );
+        $response = new  Saída ();
+        $response -> allowedMethod ( 'GET' );
         $id = $_GET [ 'id' ];
         $produto = new  produto ( $id , null , null , null );
-        $resultado = $produto -> selectById ();
-        $resposta -> saída ( $resultado );
+        $result = $produto -> selectById ();
+        $response -> saída ( $result );
     }
 
 }

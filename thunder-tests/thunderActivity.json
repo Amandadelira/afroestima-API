@@ -1,18 +1,18 @@
 [
   {
-    "_id": "449a4ccb-0f1d-4b98-a836-82aee712e068",
+    "_id": "08cff672-9eb7-4a2e-b8a9-32466a441164",
     "colId": "history",
     "containerId": "",
-    "name": "http://localhost/afropratas-back-end/api/auth/login",
-    "url": "http://localhost/afropratas-back-end/api/user/create",
+    "name": "http://localhost/afropratas-back-end/api/product/create",
+    "url": "http://localhost/afropratas-back-end/api/product/create",
     "method": "POST",
     "sortNum": 0,
-    "created": "2022-05-23T17:37:18.304Z",
-    "modified": "2022-05-30T20:19:57.946Z",
+    "created": "2022-05-31T18:10:32.498Z",
+    "modified": "2022-05-31T18:23:25.207Z",
     "headers": [
       {
-        "name": "acess-token",
-        "value": ""
+        "name": "Access-Token",
+        "value": "f4fcc178ce2a9422b0421d390a958bbf"
       }
     ],
     "params": [],
@@ -21,16 +21,225 @@
       "raw": "",
       "form": [
         {
-          "name": "name",
-          "value": "gio"
+          "name": "photo",
+          "value": "https://images.pexels.com/photos/6277361/pexels-photo-6277361.jpeg?cs=srgb&dl=pexels-rubenstein-rebello-6277361.jpg&fm=jpg"
         },
         {
-          "name": "email",
-          "value": "giovian@gmail.com"
+          "name": "title",
+          "value": "Pulseira Selvagen"
         },
         {
-          "name": "pass",
-          "value": "123123"
+          "name": "price",
+          "value": "148,96"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "9f54f02d-09f9-4450-896b-257cc66c36d5",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/afropratas-back-end/api/product/delete",
+    "url": "http://localhost/afropratas-back-end/api/product/delete",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-05-31T18:25:49.521Z",
+    "modified": "2022-05-31T18:34:12.131Z",
+    "headers": [
+      {
+        "name": "Access-Token",
+        "value": "f4fcc178ce2a9422b0421d390a958bbf"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "id",
+          "value": "2"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "f8a91663-013c-4ad6-b8ec-38d1cc342801",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/afropratas-back-end/api/product/delete",
+    "url": "http://localhost/afropratas-back-end/api/product/delete",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-05-31T18:25:54.561Z",
+    "modified": "2022-05-31T19:15:58.198Z",
+    "headers": [
+      {
+        "name": "Access-Token",
+        "value": "f4fcc178ce2a9422b0421d390a958bbf"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "id",
+          "value": "6"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "5f8d1d61-7aec-401c-bcc7-377fbe0ae100",
+    "colId": "history",
+    "containerId": "",
+    "name": "https://www.thunderclient.com/welcome",
+    "url": "https://www.thunderclient.com/welcome",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-05-31T18:28:56.437Z",
+    "modified": "2022-05-31T18:28:58.709Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "134d8b67-0b20-4c50-addf-35e5ec188a65",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/afropratas-back-end/api/user/delete",
+    "url": "http://localhost/afropratas-back-end/api/user/delete",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-05-31T18:30:34.622Z",
+    "modified": "2022-05-31T18:30:34.637Z",
+    "headers": [
+      {
+        "name": "Access-Token",
+        "value": "39dfa55283318d31afe5a3ff4a0e3253e2045e43"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "id",
+          "value": "15"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "32b7444f-bc88-4844-bf98-8fcf821e8127",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/afropratas-back-end/api/user/delete",
+    "url": "http://localhost/afropratas-back-end/api/user/delete",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-05-31T18:30:38.931Z",
+    "modified": "2022-05-31T18:30:38.990Z",
+    "headers": [
+      {
+        "name": "Access-Token",
+        "value": "39dfa55283318d31afe5a3ff4a0e3253e2045e43"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "id",
+          "value": "15"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "ed632164-46bf-4c4e-b80e-951c616539d0",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/afropratas-back-end/api/user/select-all",
+    "url": "http://localhost/afropratas-back-end/api/user/select-all",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-05-31T19:25:43.290Z",
+    "modified": "2022-05-31T19:25:43.393Z",
+    "headers": [
+      {
+        "name": "Access-Token",
+        "value": "f4fcc178ce2a9422b0421d390a958bbf"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "8ba92fb8-3f27-407c-947e-f6f75cb4206f",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/afropratas-back-end/api/product/select-all",
+    "url": "http://localhost/afropratas-back-end/api/product/select-all",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-05-31T19:29:45.472Z",
+    "modified": "2022-05-31T19:34:55.360Z",
+    "headers": [
+      {
+        "name": "Access-Token",
+        "value": "f4fcc178ce2a9422b0421d390a958bbf"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "22966e6b-3172-4f4d-be01-82a134295495",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/afropratas-back-end/api/product/update",
+    "url": "http://localhost/afropratas-back-end/api/product/update",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-05-31T19:41:30.900Z",
+    "modified": "2022-05-31T19:46:10.484Z",
+    "headers": [
+      {
+        "name": "Access-Token",
+        "value": "f4fcc178ce2a9422b0421d390a958bbf"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "id",
+          "value": "7"
+        },
+        {
+          "name": "photo",
+          "value": "https://www.pexels.com/pt-br/foto/acessorio-lindo-bonito-atraente-6263064/"
+        },
+        {
+          "name": "title",
+          "value": "Arco Adão"
+        },
+        {
+          "name": "price",
+          "value": "759,90"
         }
       ]
     },
