@@ -7,7 +7,7 @@ class UserController{
         $response->allowedMethod('POST');
         $name = $_POST['name'];
         $email = $_POST['email'];
-        $pass = $_POST['pass'];
+        $pass = $_POST['password'];
 
         //Processamento
         $user = new User(null, $name, $email, sha1($pass));
