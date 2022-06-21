@@ -6,7 +6,6 @@ class ProductController{
         $response->allowedMethod( 'POST' );
 
         $auth = new Auth();
-        $user_session = $auth->allowedRole( 'admin' );
 
         //Entradas
         $photo = $_POST[ 'photo' ];
@@ -18,10 +17,10 @@ class ProductController{
         $id = $produto->create();
         //Saída
         $result[ 'message' ] = "Produto Cadastrado com sucesso!" ;
-        $resultado[ 'produto' ][ 'id' ] = $id ;
-        $resultado[ 'produto' ][ 'photo' ] = $photo ;
-        $resultado[ 'produto' ][ 'title' ] = $title ;
-        $resultado[ 'produto' ][ 'price' ] = $price ;
+        $result[ 'produto' ][ 'id' ] = $id ;
+        $result[ 'produto' ][ 'photo' ] = $photo ;
+        $result[ 'produto' ][ 'title' ] = $title ;
+        $result[ 'produto' ][ 'price' ] = $price ;
         $response->out( $resultado );
     }
 
@@ -64,18 +63,28 @@ class ProductController{
         //Entrada
         $response = new Output();
         $response->allowedMethod('GET');
+        $id = $_GET['id'];
+        $photo = $_GET[ 'photo' ];
+        $title = $_GET[ 'title' ];
+        $price = $_GET[ 'price' ];
         $product = new Product(null, null, null, null);
         //Saida
         $result =  $product->selectAll();
         $response->out($result);
     }
     function selectById (){
-        $response = new  Saída ();
-        $response -> allowedMethod ( 'GET' );
-        $id = $_GET [ 'id' ];
-        $produto = new  produto ( $id , null , null , null );
-        $result = $produto -> selectById ();
-        $response -> saída ( $result );
+        $response = new  Output();
+        $response -> allowedMethod('GET');
+        $id = $_GET['id'];
+        $photo = $_POST[ 'photo' ];
+        $title = $_POST[ 'title' ];
+        $price = $_POST[ 'price' ];
+        $product = new Product( $id, null, null, null );
+        $result[ 'produto' ][ 'id' ] = $id ;
+        $result[ 'produto' ][ 'photo' ] = $photo ;
+        $result[ 'produto' ][ 'title' ] = $title ;
+        $result[ 'produto' ][ 'price' ] = $price ;
+        $response->out($result);
     }
 
 }
