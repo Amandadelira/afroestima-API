@@ -63,10 +63,6 @@ class ProductController{
         //Entrada
         $response = new Output();
         $response->allowedMethod('GET');
-        $id = $_GET['id'];
-        $photo = $_GET[ 'photo' ];
-        $title = $_GET[ 'title' ];
-        $price = $_GET[ 'price' ];
         $product = new Product(null, null, null, null);
         //Saida
         $result =  $product->selectAll();
@@ -76,14 +72,13 @@ class ProductController{
         $response = new  Output();
         $response -> allowedMethod('GET');
         $id = $_GET['id'];
-        $photo = $_POST[ 'photo' ];
-        $title = $_POST[ 'title' ];
-        $price = $_POST[ 'price' ];
         $product = new Product( $id, null, null, null );
-        $result[ 'produto' ][ 'id' ] = $id ;
-        $result[ 'produto' ][ 'photo' ] = $photo ;
-        $result[ 'produto' ][ 'title' ] = $title ;
-        $result[ 'produto' ][ 'price' ] = $price ;
+        $p = $product->selectById ();
+        $result[ 'produto' ] = $p;
+        //$result[ 'produto' ][ 'id' ] = $id ;
+        //$result[ 'produto' ][ 'photo' ] = $pphoto ;
+        //$result[ 'produto' ][ 'title' ] = $p->title ;
+        //$result[ 'produto' ][ 'price' ] = $p->price ;
         $response->out($result);
     }
 

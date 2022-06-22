@@ -69,7 +69,7 @@ class Product{
             $response->out($result, 500);
         }
     }
-    function selecById(){
+    function selectById(){
         $db = new DataBase();
         try {
             $stmt = $db->conn->prepare("SELECT * FROM products WHERE id = :id;");
