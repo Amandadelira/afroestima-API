@@ -21,7 +21,7 @@ class ProductController{
         $result[ 'produto' ][ 'photo' ] = $photo ;
         $result[ 'produto' ][ 'title' ] = $title ;
         $result[ 'produto' ][ 'price' ] = $price ;
-        $response->out( $resultado );
+        $response->out( $result );
     }
 
     function delete(){
